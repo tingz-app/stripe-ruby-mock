@@ -13,7 +13,7 @@ module StripeMock
       @state = 'ready'
     end
 
-    def mock_request(method, url, api_key: nil, params: {}, headers: {})
+    def mock_request(method, url, api_key: nil, params: {}, headers: {}, usage: [])
       timeout_wrap do
         @pipe.mock_request(method, url, api_key: api_key, params: params, headers: headers).tap {|result|
           response, api_key = result
